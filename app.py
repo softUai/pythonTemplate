@@ -6,4 +6,9 @@ mydb = mysql.connector.connect(
   password="ibd2024"
 )
 
-print(mydb)
+mycursor = mydb.cursor()
+
+mycursor.execute("SHOW DATABASES")
+
+for x in mycursor:
+  print(x)
