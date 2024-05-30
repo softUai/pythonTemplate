@@ -1,2 +1,2 @@
 # Pytho Template
-This project is a python language template where the implementation uses an architecture in three layers.
+This project is a Python language template with a three-layer architecture implementation.
