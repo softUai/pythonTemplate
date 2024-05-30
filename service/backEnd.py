@@ -1,6 +1,14 @@
 import database.manipulate as DB
 
-def showDatabasesConnected():
-    mycursor = DB.connectMySQL()
-    mycursor.execute("SHOW DATABASES")
-    return mycursor
+def databasesConnected():
+    mydb = DB.connectMySQL()
+    print(mydb)
+    mycursor = mydb.cursor()
+    
+
+    # print("Into BackEnd")
+    # for database in mycursor:
+    #     print(database)
+    
+    return mycursor.execute("SHOW DATABASES")
+    
