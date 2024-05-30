@@ -1,14 +1,8 @@
-import mysql.connector
+import interface.frontEnd as FE
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="ibd2024"
-)
+def main():
+  print("Baum!?")
 
-mycursor = mydb.cursor()
-
-mycursor.execute("SHOW DATABASES")
-
-for x in mycursor:
-  print(x)
+if __name__ == "__main__":
+  main()
+  FE.showDatabases()
