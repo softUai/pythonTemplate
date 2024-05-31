@@ -8,3 +8,9 @@ def dbConnect(dbName):
     database=dbName
   )
   return mydb
+
+def showTables(dbName):
+  db = dbConnect(dbName)
+  mycursor = db.cursor()
+  mycursor.execute("SHOW TABLES")
+  return mycursor.fetchall()
