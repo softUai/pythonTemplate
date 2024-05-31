@@ -1,8 +1,6 @@
 import service.backEnd as BE
 
-def showDatabases():
-    mycursor = BE.databasesConnected()
-    print(mycursor)
-    print("Into FrontEnd")
-    for database in mycursor:
-        print(database)
+def printTables(dbName):
+   namesTablelist = BE.tableList(dbName)
+   for name in namesTablelist:
+      print(name[0])

@@ -1,16 +1,10 @@
-def connectMySQL():
-  import mysql.connector
+import mysql.connector
 
+def dbConnect(dbName):
   mydb = mysql.connector.connect(
     host="localhost",
     user="root",
-    password="ibd2024"
+    password="ibd2024",
+    database=dbName
   )
-
-#   mycursor = mydb.cursor()
-#   mycursor.execute("SHOW DATABASES")
-
-#   for database in mycursor:
-#         print(database)
-
   return mydb
