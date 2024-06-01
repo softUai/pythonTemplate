@@ -1,5 +1,8 @@
-import database.manipulate as DB
+import database.connect as DB
 
-def tableList(dbName):
-  return DB.showTables(dbName)
+def showTables(dbName):
+  db = DB.dbConnect(dbName)
+  mycursor = db.cursor()
+  mycursor.execute("SHOW TABLES")
+  return mycursor.fetchall()
     
