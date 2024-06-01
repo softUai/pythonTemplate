@@ -4,4 +4,5 @@ def main():
   FE.printTables("empresa")
 
 if __name__ == "__main__":
-  main()
+  print("main")
+  FE.createEmpresa()
