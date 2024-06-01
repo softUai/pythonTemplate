@@ -1,6 +1,6 @@
 import database.connect as DB
 
-def showTables(dbName):
+def searchTables(dbName):
   db = DB.dbConnect(dbName)
   mycursor = db.cursor()
   mycursor.execute("SHOW TABLES")
