@@ -1,10 +1,28 @@
 import service.backEnd as BE
 
-def printTables(dbName):
-   namesTablelist = BE.searchTables(dbName)
-   for name in namesTablelist:
-      print(name[0])
+def print_menu():
+    print("1. Show tables from a database name")
+    print("2. Create Schem of the Company")
+    print("3. Populate Schem of the Company")
+    print("0. Exit")
 
-def createEmpresa():
-   print("FE.createEmpresa")
-   BE.createEmpresa()
+def main():
+    while True:
+        print_menu()
+        choice = input("Enter your choice: ")
+        
+        if choice == '1':
+            dbName = input("Enter database name: ")
+            BE.printTables(dbName)
+        elif choice == '2':
+            BE.createSchemEmpresa()
+        elif choice == '3':
+            BE.instancySchemEmpresa()
+        elif choice == '0':
+            print("Exiting...")
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+   main()
