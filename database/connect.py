@@ -63,5 +63,5 @@ def populateSchemV0():
   finally:
     # Close the connection
     if conn:
-        cursor.close()
-        conn.close()
+      cursor.close()
+      conn.close()

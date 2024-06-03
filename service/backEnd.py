@@ -2,11 +2,18 @@ import database.connect as DB
 from mysql.connector import Error as dbError
 
 def searchTables(dbName):
-  db = DB.dbConnectByName(dbName)
-  mycursor = db.cursor()
-  mycursor.execute("SHOW TABLES")
-  return mycursor.fetchall()
-
+  result = []
+  try:
+    db = DB.dbConnectByName(dbName)
+    mycursor = db.cursor()
+    mycursor.execute("SHOW TABLES")
+    result = mycursor.fetchall()
+    return result
+  except dbError as e:
+    print(f"Error while connecting to MySQL by database name: {e}")
+  finally:
+    return result
+  
 def printTables(dbName):
    namesTablelist = searchTables(dbName)
    for name in namesTablelist:
