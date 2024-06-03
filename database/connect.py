@@ -4,7 +4,7 @@ import pyenv.private as pvt
 def dbConnect():
   return mysql.connector.connect( host=pvt.HOST, user=pvt.USER, password=pvt.PASSWORD )
 
-def dbConnect(dbName):
+def dbConnectByName(dbName):
   return mysql.connector.connect( host=pvt.HOST, user=pvt.USER, password=pvt.PASSWORD, database=dbName )
 
 def createSchemV0():
@@ -47,6 +47,7 @@ def populateSchemV0():
     # Execute the SQL script
     for statement in createSQLScript.split(';'):
         if statement.strip():
+            print(statement)
             cursor.execute(statement)
 
     conn.commit()

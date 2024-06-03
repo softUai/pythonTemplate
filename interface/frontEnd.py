@@ -4,6 +4,7 @@ def print_menu():
     print("1. Show tables from a database name")
     print("2. Create Schem of the Company")
     print("3. Populate Schem of the Company")
+    print("4. Drop Schem of the Company")
     print("0. Exit")
 
 def main():
@@ -18,6 +19,8 @@ def main():
             BE.createSchemEmpresa()
         elif choice == '3':
             BE.instancySchemEmpresa()
+        elif choice == '4':
+            BE.dropSchemEmpresa()
         elif choice == '0':
             print("Exiting...")
             break

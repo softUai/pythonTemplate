@@ -1,7 +1,7 @@
 import database.connect as DB
 
 def searchTables(dbName):
-  db = DB.dbConnect(dbName)
+  db = DB.dbConnectByName(dbName)
   mycursor = db.cursor()
   mycursor.execute("SHOW TABLES")
   return mycursor.fetchall()
@@ -18,4 +18,13 @@ def createSchemEmpresa():
 def instancySchemEmpresa():
   print("BE.populateEmpresa")
   DB.populateSchemV0()
+
+def dropSchemEmpresa():
+  conn = DB.dbConnect()
+  cursor = conn.cursor()
+  database_name = "empresa"
+  drop_db_query = f"DROP DATABASE {database_name};"
+  # Execute the SQL query
+  cursor.execute(drop_db_query)
+  print(f"Database '{database_name}' dropped successfully.")
     
