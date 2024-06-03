@@ -23,4 +23,19 @@ This project is a Python language template with a five-layer architecture implem
 - pip install -r doc\requirements.txt -> Execute the requirements from a file.
 
 # Example
-- A MVP was created from the company database and department relation. You can use a menu to use the program. To do that, execute python app.py. 
+- A MVP was created from the company database and department relation. You can use a menu to use the program. To do that, execute python app.py.
+- Choose a sequencial options:
+  - 1. Create company's schem
+  - 2. Show relations
+  - 3. Insert department
+      - Inputs: The program asks for one value each time.
+        - ('Pesquisa', 5, '33344555587', '1988-05-22'),
+        - ('Administração', 4, '98765432168', '1995-01-01'),
+        - ('Matriz', 1, '88866555576', '1981-06-19');
+        - ('None', 0, '12345678910', '1111-11-11');
+  - 4. Drop department by number
+      - Inputs: The program asks for one value each time.
+        - 0
+  - 5. Add last constraint in department
+  - 6. Drop company's schem
+  - 0. Exit
