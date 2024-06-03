@@ -27,4 +27,10 @@ def dropSchemEmpresa():
   # Execute the SQL query
   cursor.execute(drop_db_query)
   print(f"Database '{database_name}' dropped successfully.")
+
+def insertDepartment(dbName):
+  db = DB.dbConnectByName(dbName)
+  mycursor = db.cursor()
+  mycursor.execute("SHOW TABLES")
+  return mycursor.fetchall()
     

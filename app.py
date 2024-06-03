@@ -1,19 +1,15 @@
 import interface.frontEnd as FE
 import pyenv.private as pvt
 import mysql.connector
+from mysql.connector import Error as dbError
 
 def main():
   mydb = mysql.connector.connect( host=pvt.HOST, user=pvt.USER, password=pvt.PASSWORD, database="empresa")
   mycursor = mydb.cursor()
 
-  with open('database/populaDB.sql', 'r') as file:
-      createSQLScript = file.read()
-  
-  sqlScript = createSQLScript.split(";")
-  print(sqlScript[0] + ";")
-
   sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
-  val = ('Pesquisa', 5, '33344555587', '1988-05-22')
+  val = ('None', '0', '11100022233', '1111-11-11')
+
   mycursor.execute(sql, val)
 
   mydb.commit()
@@ -21,6 +17,12 @@ def main():
   mydb.close()
   mycursor.close()
 
+
 if __name__ == "__main__":
-  main()
+  try:
+    main()
+  except dbError as e:
+        print(f"Error while connecting to MySQL: {e}")
+  finally:
+    print("Finish the program!")
 
