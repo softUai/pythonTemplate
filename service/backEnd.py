@@ -23,10 +23,6 @@ def createSchemEmpresa():
   print("BE.createEmpresa")
   DB.createSchemV0()
 
-def instancySchemEmpresa():
-  print("BE.populateEmpresa")
-  DB.populateSchemV0()
-
 def dropSchemEmpresa():
   conn = DB.dbConnect()
   cursor = conn.cursor()
@@ -44,28 +40,20 @@ def insertDepartment(dbName, val):
   mycursor.fetchall()
   db.commit()
 
-def dropDepartmentByDnumero(val):
-  db = DB.dbConnect()
+def dropDepartmentByDnumero(numDept):
+  db = DB.dbConnectByName("empresa")
   mycursor = db.cursor()
   sql = "DELETE FROM departamento Where Dnumero = (%s)"
+  val = [(numDept)]
   mycursor.execute(sql, val)
   mycursor.fetchall()
   db.commit()
 
-
-
-
-  # try:
-  #   db = DB.dbConnectByName(dbName)
-  # except dbError as e:
-  #   print(f"Error while connecting to MySQL: {e}")
-  # finally:
-  #   mycursor = db.cursor()
-  #   sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
-  #   try:
-  #     mycursor.execute(sql, val)
-  #   except dbError as e:
-  #     print(f"Error while executing insert departament to MySQL: {e}")
-  #   finally:
-  #     return mycursor.fetchall()
-    
+def addConstraintCpfGerente():
+  db = DB.dbConnectByName("empresa")
+  mycursor = db.cursor()
+  mycursor.execute(f"ALTER TABLE empresa.departamento",
+                    "ADD CONSTRAINT FK_cpf_gerente FOREIGN KEY (cpf_gerente) REFERENCES  Funcionario (cpf)", 
+                    "ON DELETE CASCADE ON UPDATE CASCADE;")
+  mycursor.fetchall()
+  db.commit()
