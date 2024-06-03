@@ -39,3 +39,7 @@ This project is a Python language template with a five-layer architecture implem
   - 5. Add last constraint in department
   - 6. Drop company's schem
   - 0. Exit
+
+# Exercises
+ - Complete the database with the others tubles by the instance showed in the book.
+ - Implement some queries and modifications in database schem.
