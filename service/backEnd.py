@@ -52,8 +52,8 @@ def dropDepartmentByDnumero(numDept):
 def addConstraintCpfGerente():
   db = DB.dbConnectByName("empresa")
   mycursor = db.cursor()
-  mycursor.execute(f"ALTER TABLE empresa.departamento",
-                    "ADD CONSTRAINT FK_cpf_gerente FOREIGN KEY (cpf_gerente) REFERENCES  Funcionario (cpf)", 
-                    "ON DELETE CASCADE ON UPDATE CASCADE;")
+  #sql = "UPDATE customers SET address = 'Canyon 123' WHERE address = 'Valley 345'"
+  sql = "ALTER TABLE departamento ADD CONSTRAINT FK_cpf_gerente FOREIGN KEY (cpf_gerente) REFERENCES Funcionario (cpf) ON DELETE CASCADE ON UPDATE CASCADE;"
+  mycursor.execute(sql)
   mycursor.fetchall()
   db.commit()
