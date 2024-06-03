@@ -37,17 +37,35 @@ def dropSchemEmpresa():
   print(f"Database '{database_name}' dropped successfully.")
 
 def insertDepartment(dbName, val):
-  try:
-    db = DB.dbConnectByName(dbName)
-  except dbError as e:
-    print(f"Error while connecting to MySQL: {e}")
-  finally:
-    mycursor = db.cursor()
-    sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
-    try:
-      mycursor.execute(sql, val)
-    except dbError as e:
-      print(f"Error while executing insert departament to MySQL: {e}")
-    finally:
-      return mycursor.fetchall()
+  db = DB.dbConnectByName(dbName)
+  mycursor = db.cursor()
+  sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
+  mycursor.execute(sql, val)
+  mycursor.fetchall()
+  db.commit()
+
+def dropDepartmentByDnumero(val):
+  db = DB.dbConnect()
+  mycursor = db.cursor()
+  sql = "DELETE FROM departamento Where Dnumero = (%s)"
+  mycursor.execute(sql, val)
+  mycursor.fetchall()
+  db.commit()
+
+
+
+
+  # try:
+  #   db = DB.dbConnectByName(dbName)
+  # except dbError as e:
+  #   print(f"Error while connecting to MySQL: {e}")
+  # finally:
+  #   mycursor = db.cursor()
+  #   sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
+  #   try:
+  #     mycursor.execute(sql, val)
+  #   except dbError as e:
+  #     print(f"Error while executing insert departament to MySQL: {e}")
+  #   finally:
+  #     return mycursor.fetchall()
     

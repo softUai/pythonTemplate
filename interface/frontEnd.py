@@ -6,15 +6,15 @@ def departmentData():
   cpfManager = input("Digite o cpf do gerente do departamento: '11 characteres' - ") 
   startDateManager = input("Digite a data de inicio do gerente do departamento: 'YYYY-MM-DD' - ") 
   val = (str(nameDpt), str(numDpt), str(cpfManager), str(startDateManager))
-  BE.insertDepartment("empresa", val)
   return val
 
 def print_menu():
-    print("1. Show tables from a database name")
-    print("2. Create company's schem")
-    print("3. Populate company's schem")
-    print("4. Drop company's schem")
-    print("5. Insert department")
+    print("1. Create company's schem")
+    print("2. Show relations")
+    print("3. Insert department")
+    print("4. Drop department by number")
+    print("5. Add last constraint in department")
+    print("6. Drop company's schem")
     print("0. Exit")
 
 def main():
@@ -22,16 +22,17 @@ def main():
         print_menu()
         choice = input("Enter your choice: ")
         if choice == '1':
-            dbName = input("Enter database name: ")
-            BE.printTables(dbName)
-        elif choice == '2':
             BE.createSchemEmpresa()
+        elif choice == '2':
+            BE.printTables("empresa")
         elif choice == '3':
-            BE.instancySchemEmpresa()
+            BE.insertDepartment("empresa", departmentData())
         elif choice == '4':
-            BE.dropSchemEmpresa()
+            BE.insertDepartment("empresa", departmentData())
         elif choice == '5':
-            BE.insertDepartment()
+            BE.dropDepartmentByDnumero("empresa", departmentData())
+        elif choice == '6':
+            BE.dropSchemEmpresa()
         elif choice == '0':
             print("Exiting...")
             break
