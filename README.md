@@ -1,4 +1,4 @@
-# Pytho Template
+# Python Template
 This project is a Python language template with a five-layer architecture implementation and MySQL connection. The database used was a company, it was explained in Elmashi and Navathe book, introduction a database fundamentals, 7th edition.
 
 # Start enviroment
