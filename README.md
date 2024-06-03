@@ -23,7 +23,11 @@ This project is a Python language template with a five-layer architecture implem
 - pip install -r doc\requirements.txt -> Execute the requirements from a file.
 
 # Example
-- A MVP was created from the company database and department relation. You can use a menu to use the program. To do that, execute python app.py.
+- A MVP was created from the company database and department relation. You can use a menu to use the program. To do that, create a private.py into a pyenv folder, after execute "python -m venv pyenv" and put your credencials, for example:
+  - HOST="localhost"
+  - USER="root"
+  - PASSWORD="ibd2024"
+  - Finally. execute "python app.py".
 - Choose a sequencial options:
   - 1. Create company's schem
   - 2. Show relations
