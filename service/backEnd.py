@@ -1,4 +1,5 @@
 import database.connect as DB
+from mysql.connector import Error as dbError
 
 def searchTables(dbName):
   db = DB.dbConnectByName(dbName)
@@ -28,9 +29,18 @@ def dropSchemEmpresa():
   cursor.execute(drop_db_query)
   print(f"Database '{database_name}' dropped successfully.")
 
-def insertDepartment(dbName):
-  db = DB.dbConnectByName(dbName)
-  mycursor = db.cursor()
-  mycursor.execute("SHOW TABLES")
-  return mycursor.fetchall()
+def insertDepartment(dbName, val):
+  try:
+    db = DB.dbConnectByName(dbName)
+  except dbError as e:
+    print(f"Error while connecting to MySQL: {e}")
+  finally:
+    mycursor = db.cursor()
+    sql = "INSERT INTO departamento VALUES (%s, %s, %s, %s)"
+    try:
+      mycursor.execute(sql, val)
+    except dbError as e:
+      print(f"Error while executing insert departament to MySQL: {e}")
+    finally:
+      return mycursor.fetchall()
     
