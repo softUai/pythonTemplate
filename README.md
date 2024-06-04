@@ -1,5 +1,5 @@
 # Python Template
-This project is a Python language template with a five-layer architecture implementation and MySQL connection. The database used was a company, it was explained in Elmashi and Navathe book, introduction a database fundamentals, 7th edition.
+This project is a Python language template with a five-layer architecture implementation and MySQL connection. The database used is the company database explained in Elmashi and Navathe's book, "Introduction to Database Fundamentals, 7th edition."
 
 # Start enviroment
 - python -m venv pyenv
@@ -23,11 +23,11 @@ This project is a Python language template with a five-layer architecture implem
 - pip install -r doc\requirements.txt -> Execute the requirements from a file.
 
 # Example
-- A MVP was created from the company database and department relation. You can use a menu to use the program. To do that, create a private.py into a pyenv folder, after execute "python -m venv pyenv" and put your credencials, for example:
+- An MVP was created from the company database and department relationsAn MVP has been created using the company database and department relations. You can access the program through a menu. To do this, create a private.py file in a "pyenv" folder, then execute "python -m venv pyenv" and enter your credentials, for example: You can use a menu to use the program. To do that, create a private.py into a "pyenv" folder. Following execute "python -m venv pyenv" and put your credentials, for example:
   - HOST="localhost"
   - USER="root"
   - PASSWORD="ibd2024"
-  - Finally. execute "python app.py".
+  - Finally, execute "python app.py".
 - Choose a sequencial options:
   - 1. Create company's schem
   - 2. Show relations
@@ -47,3 +47,4 @@ This project is a Python language template with a five-layer architecture implem
 # Exercises
  - Complete the database with the others tubles by the instance showed in the book.
  - Implement some queries and modifications in database schem.
+ - Implement the paradigm Oriented Object Programming.
